@@ -6,6 +6,13 @@
   --accent-color: #ffab6b;
 }
 
+.theme_dark {
+  --bg-color: #171717;
+  --text-color:#b3b3b3;
+  --accent-color: transparent;
+}
+
+
 *,
 *::before,
 *::after {
@@ -15,6 +22,9 @@
 .page {
   min-inline-size: 360px;
   margin: 0;
+  color: var(--text-color, #312a4e);
+  font-family: var(--main-font, sans-serif);
+  background-color: var(--bg-color, #f3efec);
 }
 
 h2,
@@ -25,6 +35,15 @@ ol,
 li,
 figure {
   margin: 0;
+}
+
+a:focus,
+button:focus-visible {
+  outline: 1px solid currentColor;
+}
+
+.button:disabled {
+  pointer-events: none;
 }
 
 .heading {
@@ -38,11 +57,28 @@ figure {
   padding: 0 5vi;
 }
 
+.header {
+  padding-block-start: 10%;
+}
+
 .header__title {
   margin-block-end: 40px;
   font-size: clamp(3.75rem, 2.5rem + 5.5556vw, 7.5rem);
 }
 
+.header__menu {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-block-start: 1px solid currentColor;
+}
+
+.header__theme-toggler {
+  display: flex;
+  gap: 20px;
+  padding: 0;
+  list-style: none;
+}
 .content__title {
   margin: 7% 0 2.5%;
   font-size: 30px;
@@ -95,3 +131,4 @@ figure {
   font-size: 30px;
   background-color: var(--accent-color);
 }
+
